@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Ecological Statistics - Nest Survival Modelling</title>
+</head>
+<body>
+
+<table>
+<tr>
+  <td>
+  <b><font size=6>Nest <br>Survival<br>Modelling</font></b>
+  </td>
+  <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+  <td>
+  Presented by<br>
+  <b><font size=4>StatMathComp<br> Consulting<br>by Schwarz, Inc</font></b>
+</td>
+  <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+<td>
+<a href=http://www.stat.sfu.ca/~cschwarz>Carl James Schwarz</a> &nbsp;<a>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; <a href=http://www.stat.sfu.ca/~cschwarz/2018-Fellow-ASA.pdf>Fellow of the American Statistical Association</a>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; Accredited Professional Statistician  
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="http://www.stat.sfu.ca/~cschwarz/PStat007smaller.jpg">P.Stat. (Statistical Society of Canada)</a>,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="http://www.stat.sfu.ca/~cschwarz/Schwarz-pstat-asa.pdf">PStat&reg; (American Statistical Association)</a>
+
+</td>
+</table>
+<hr>
+
+<h1>Nest Survival Modelling - Beyond Mayfield</h1>
+Quck links:
+<ul>
+<li><a href="#Introduction">What is nest survival modelling?</a>
+<li><a href='#Software'>Software</a>
+<li><a href="#Courses">Courses and Course Slides</a>
+<li><a href="#SampleData">Sample data and analyses</a>
+</ul>
+
+<a href=../CourseNotes.zip>
+A complete zip file of this material is available here.</a>
+
+
+
+<a name="Introduction"></a> 
+<h2>What is nest survival modelling?</h2>
+
+<p>Proper estimation of nest survival rates is critical for understanding many topics 
+that are the focus of avian ecologists, yet the methods for obtaining such estimates 
+are varied and can be challenging to learn. Moreover, survival analyses require different 
+assumptions and considerations relative to other types of modeling approaches that are 
+commonplace in avian ecology. In this workshop, we will focus on training participants 
+in modern statistical approaches for quantifying survival during two important periods 
+of the annual cycle of birds: the nest cycle, and the post-fledgling period. 
+
+<p>Two influential papers are  Mayfield (1961, 1975) where he introduced the method to estimate
+nest success accounting for the unequal probability of detection of failed and successful nests.
+A major dilemma with the Mayfield method is that it cannot be used to build models that rigorously
+assess the importance of a wide range of biological factors that affect nest survival, nor can
+it be used to compare competing models. Many novel and powerful analytical methods to isolate
+factors influencing nest survivorship were introduced in the last several years. 
+ 
+<p>Workshop participants will receive hands-on instruction regarding two distinct modeling 
+approaches important to avian ecologists. In the first half of the course, modern 
+approaches to developing and testing nest survival models will be taught using 
+Program MARK and RMark, in addition to logistic exposure models in R. 
+
+<p>In the second half, survival analyses with Cox Proportional Hazards models will be taught, 
+including instruction on the use fixed and time-varying covariates and approaches 
+for dealing with censoring, again using R. Within each component, 
+discussion of common study design considerations (e.g., sample sizes, 
+sampling frequency) will be included, and participants will have time to work through their own datasets.
+
+
+<p>A nice introduction to monitoring nests is found at:
+<a href=https://nestwatch.org/learn/how-to-nestwatch/nest-monitoring-protocol/>Nest Watch</a>
+
+<hr>
+
+<a name="Software"></a> 
+<h2>Software</h2>
+There are several software packages that can be used for nest survival modelling.
+
+<table border=1>
+<tr><th>Package</th>
+    <th>Url</th></tr>
+
+<tr>
+  <td>MARK <br>
+      RMark </td> 
+  <td><a href= http://www.phidot.org/software/mark/downloads/>http://www.phidot.org/software/mark/downloads/</a><br>
+      <i>MARK</i> is a standalong Windoze program for capture-recapture, occupancy, and other studies.</br>
+      <i>RMark</i> is an <i>R</i> packages available from CRAN that calls <i>MARK</i> and collects the output for further processing by <i>R</i>.<br>
+      Because <i>RMark</i> calls <i>MARK</i> directly, it only runs under Windoze.
+  </tr>
+
+<tr>
+  <td>JAGS </td> 
+  <td>Follow istructions at <a href=http://www.stat.sfu.ca/~cschwarz/CourseNotes/HowGetSoftware.html>
+                                    http://www.stat.sfu.ca/~cschwarz/CourseNotes/HowGetSoftware.html</a><br>
+      A program to run Bayesian models written in BUGS. Commonly called from <i>R</i> to handle input/output.
+  </td>
+  </tr>
+
+<tr>
+  <td>R <br>Rstudio</td>
+  <td>Follow istructions at <a href=http://www.stat.sfu.ca/~cschwarz/CourseNotes/HowGetSoftware.html>
+                                    http://www.stat.sfu.ca/~cschwarz/CourseNotes/HowGetSoftware.html</a><br>
+      <i>RPresence</i>, <i>RMark</i>, <i>unmarked</i>, and <i>JAGS</i> use <i>R</i> extensively.
+  </td>
+  </tr>
+
+
+</table>
+
+<hr>
+<a name="Courses"></a> 
+<h2>Courses</h2>
+I offer a one day course nest survival modelling. It was last given at the AOS meeting
+in Anchorage, Alaska in June 2019.
+
+<p>I can also do this or other courses onsite at your organization. Please contact me (<a href='mailto:cschwarz.stat.sfu.ca at gmail.com'>Carl Schwarz</a>) for information.
+
+<p><a href=Slides>Slides  from the course</a> are available in <a href=Slides>this directory</a>
+
+<p>A typical course outline
+<ol>
+<li>Introduction
+  <ul>
+   <li> What is nest success?
+   <li> Mayfield method and its limitations.
+   <li> basic statistical review
+   <li> concepts and notations
+   <li> binomial data, odds ratios
+   <li> basic likelihood
+   <li> model selection and multi-model inference
+  </ul>
+
+<p><li>Estimating nest success using MARK/RMark
+  <ul>
+   <li> basic sampling protocol
+   <li> data format
+   <li> MARK/RMark software 
+   <li> assessing impacts of covariates
+   <li> model assumptions
+  </ul>
+
+<p><li>Logistic exposure models 
+  <ul>
+   <li> sampling protocol
+   <li> data structure
+   <li> modified link function for the glm() function in R.
+   <li> dealing with covariates
+  </ul>
+
+<p><li>Cox Proportional Hazard models
+  <ul>
+   <li> sampling protocol
+   <li> data structure
+   <li> model fitting and interpretation
+  </ul>
+</ol>
+
+Additonal course covering more advance topics in nest success modelling
+ (e.g. bayesian methods, spatial methods, random effects, designed experiments)
+also be arranged. Please contact me for details.
+
+
+
+
+
+<hr>
+<a name="SampleData"></a> 
+<h2>Sample data, code, and analyses</h2>
+Refer to course notes for more details. In most directories, the suffix 
+"-le" is for a logistic exposure model; the suffix "-ph" implies a Cox Proportional hazard model.
+
+<p>Additional software to expand data to individual days is avaialble 
+<ul>
+<li><a href=DataAndCode/RMark.additional.functions.R>RMark to model average derived values</a>
+<li><a href=DataAndCode/logistic-exposure-model.R>logisitic exposure link funciton; 
+ split data into individual records for each day for logisitic exposure;</a>
+<li><a href=DataAndCode/CoxPH-additional-functions.R>Split data into daily records and compute the Surv variable for Cox PH model</a>
+<li><a href=DataAndCode/jags-nest-survival-fixed-effects.r>JAGS standadized code for "fixed" effects (only)</a>
+<li><a href=DataAndCode/jags-nest-survival-random-effects.r>JAGS standadized code for "fixed" and "random" effects</a>
+</ul>
+<table border=1>
+
+<tr>
+   <th>Example<br>and data</th>
+   <th>Notes</th>
+   <th>RMark</th>
+   <th>Logistic<br>Exposure</th>
+   <th>Cox PH</th>
+   <th>Bayesian</th>
+</tr>
+
+<tr>
+  <td><a href=DataAndCode/Banko-HAEL>Hawaii Elepaio</a></td>
+  <td><a href=https://academic.oup.com/condor/article/121/1/duz003/5424444> Banko et al (2019)<br>
+       Nest categorical and continuous covariates</td>
+  <td><a href=DataAndCode/Banko-HAEL/RMark/>RMark</a></td>
+  <td><a href=DataAndCode/Banko-HAEL/LogisticExposure>Logistic<br>Exposure</a></td>
+  <td><!--- <a href=DataAndCode/Banko-HAEL/CoxPH>Cox<br>Prop Hazard</a> ---!></td>
+</tr>
+
+
+<tr>
+  <td><a href=DataAndCode/Killdeer>Killdeer</a></td>
+  <td>Ships with MARK<br>
+      Small number of nests; no covariates.</td>
+  <td><a href=DataAndCode/Killdeer/RMark/>RMark</a></td>
+  <td><a href=DataAndCode/Killdeer/LogisticExposure>Logistic<br>Exposure</a></td>
+  <td><a href=DataAndCode/Killdeer/CoxPH>Cox<br>Prop Hazard</a></td>
+  <td><a href=DataAndCode/Killdeer/JAGS>JAGS</a></td>
+
+</tr>
+
+<tr>
+  <td><a href=DataAndCode/Mallard>Mallards</a></td>
+  <td>Ships with MARK and Rmark.<br>
+      Categorical and continuous covariates</td>
+  <td><a href=DataAndCode/Mallard/RMark/>RMark</a></td>
+  <td><a href=DataAndCode/Mallard/LogisticExposure>Logistic<br>Exposure</a></td>
+  <td><a href=DataAndCode/Mallard/CoxPH>Cox<br>Prop Hazard</a></td>
+  <td><a href=DataAndCode/Mallard/JAGS>JAGS</a></td>
+</tr>
+
+
+<tr>
+  <td><a href=DataAndCode/Sherry-redstarts>Redstarts</a></td>
+  <td><a href=https://doi.org/10.1111/jav.00536>Sherry et al (2015)<br>
+       Categorical and continuous covariates</td>
+  <td><a href=DataAndCode/Sherry-redstarts/RMark/>RMark</a></td>
+  <td><a href=DataAndCode/Sherry-redstarts/LogisticExposure>Logistic<br>Exposure</a></td>
+  <td><a href=DataAndCode/Sherry-redstarts/CoxPH>Cox<br>Prop Hazard</a></td>
+  <td><a href=DataAndCode/Sherry-redstarts/JAGS>JAGS</a><br>Includes<br>random<br>effect<br>models</td>
+</tr>
+
+<tr>
+  <td><a href=DataAndCode/Sparrow>Vesper sparrow</a></td>
+  <td><a href=https://www.researchgate.net/post/Does_anybody_have_code_for_running_a_logistic_exposure_nest_survival_model_in_R>
+      Unknown blog post</a> 
+      Continuous covariates</td>
+  <td><!--- <a href=DataAndCode/Sparrow/RMark/>RMark</a>   ---!></td>
+  <td><a href=DataAndCode/Sparrow/LogisticExposure>Logistic<br>Exposure</a></td>
+  <td><!--- <a href=DataAndCode/Sparrow/CoxPH>Cox<br>Prop Hazard</a> ---!></td>
+</tr>
+
+
+
+
+
+
+
+
+
+</table>
+
+<hr><P>
+<address>
+</table>
+
+<hr><P>
+<address>
+[
+<A href="http://www.stat.sfu.ca/">SFU Statistics &amp; Actuarial Science Home</A>
+|
+<A href="http://www.sfu.ca/">SFU Home</A>]
+
+<br>
+<a href="mailto:cschwarz@stat.sfu.ca">Email comments or suggestions to cschwarz@stat.sfu.ca</a>
+<br><small>Last updated 2019-06-28</small>
+</body>
+</html> 
+
