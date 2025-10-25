@@ -1,0 +1,74 @@
+
+    ############################################################
+
+  var NS.NestId.num [Nnest.survive],
+      NS.FirstFound [Nnest.survive],
+      NS.LastPresent[Nnest.survive],
+
+      NF.NestId.num [Nnest.fail],
+      NF.LastPresent[Nnest.fail],
+      NF.LastChecked[Nnest.fail],
+
+      NT.NestId.num[Nnesttime],
+      NT.Day       [Nnesttime],
+  
+      fe.design  [Nnesttime, Nbeta],
+      beta       [Nbeta], 
+      
+      re.z1.design[Nnesttime, Nz1],
+      z1          [Nz1]
+
+data {
+   for(i in 1:Nnest.fail){
+      one.f[i] <- 0  # for the zero's trick
+   }
+   for(i in 1:Nnest.survive){
+      one.s[i] <- 1
+   }
+}
+
+model {
+
+
+   # compute the estimated prob(survival) for each nest x day value
+   # from the fixed effects design matrix and beta values and random effects design matrix and z1 values
+   for(i in 1:Nnesttime){
+       logit(S[NT.NestId.num[i], NT.Day[i]]) <- inprod( fe.design   [i, 1:Nbeta],  beta[1:Nbeta]) +
+                                                inprod( re.z1.design[i, 1:Nz1],    z1  [1:Nz1])
+   }
+ 
+   # distribution of random effects
+   for(i in 1:Nz1){
+      z1[i] ~ dnorm(0, z1tau)
+   }
+   
+   # prior on the variance of the random effect
+   # see http://www.stat.columbia.edu/~gelman/research/published/taumain.pdf
+   z1tau <- 1/(z1sd^2)
+   z1sd ~ dunif(0,1000)
+   
+   
+   # compute the contribution from each survival portion of the nest record
+   for(i in 1:Nnest.survive){
+      p1[i] <-    prod( S[NS.NestId.num[i], NS.FirstFound[i]:(NS.LastPresent[i]-1)])
+      # use the one's trick
+      one.s[i] ~ dbern(p1[i])
+   }
+
+   # compute the contribution from each failure portion of the nest record
+   for(i in 1:Nnest.fail){
+      p2[i] <-    prod( S[NF.NestId.num[i], NF.LastPresent[i]:(NF.LastChecked[i]-1)])
+      # use the one's trick
+      one.f[i] ~ dbern(p2[i])
+   }
+
+   # prior distributions for the betas.
+   for(i in 1:Nbeta){
+      beta[i] ~ dnorm(0, .001)  # 
+   }
+
+
+
+
+    }
+    

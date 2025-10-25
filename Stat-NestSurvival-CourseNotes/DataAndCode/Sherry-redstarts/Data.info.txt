@@ -1,0 +1,6 @@
+Sherry TW, Wilson S, Hunter S, Holmes RT (2015) Impacts of nest predators and weather on reproductive success and population limitation in a long-distance migratory songbird. Journal of Avian Biology 46(6): 559-569. https://doi.org/10.1111/jav.00536
+
+Sherry TW, Wilson S, Hunter S, Holmes RT (2015) Data from: Impacts of nest predators and weather on reproductive success and population limitation in a long-distance migratory songbird. Dryad Digital Repository. https://doi.org/10.5061/dryad.73870
+
+
+Text file containing nest survival data for American redstart in MARK format for the years 1983-1995, Hubbard Brook Experimental Forest, NH, USA. Covariates (besides nest year and ID number) are date found, date nest last alive, date nest last checked, nest fate, encounter history, nest height above ground, nest status as to whether baffled against scansorial predators or not, nest tree DBH, and age status of nest.
