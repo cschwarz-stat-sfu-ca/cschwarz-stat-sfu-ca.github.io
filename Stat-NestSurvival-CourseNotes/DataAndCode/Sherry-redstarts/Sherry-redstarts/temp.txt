@@ -1,0 +1,20 @@
+
+
+> 
+> # 3. Fit a particular model
+> # This is a model with S constant over time (closest to Mayfield method)
+> mod.baf <-  RMark::mark(red.baf.proc, ddl=red.baf.ddl,
++                           model="Nest",
++                           model.parameters=list(
++                             S   =list(formula=~1)
++                           )
++   )
+Error in t(age.mat) + cumsum(c(0, time.intervals[1:(nocc - 2)])) : 
+  non-numeric argument to binary operator
+In addition: Warning message:
+Unknown or uninitialised column: 'ch'. 
+Error in RMark::mark(red.baf.proc, ddl = red.baf.ddl, model = "Nest",  : 
+  Misspecification of model or internal error in code
+> summary(mod.baf)
+Error in summary(mod.baf) : object 'mod.baf' not found
+> 
